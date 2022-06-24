@@ -16,13 +16,11 @@ function Login() {
   const nav = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(user);
     dispatch(login(user, dispatch, nav));
   };
 
   const onChangeInput = function (event) {
     const { name, value } = event.target;
-    console.log(value);
     if (name === "email") {
       setUser({ ...user, [name]: value, ["deviceId"]: `deviceId-${value}` });
     } else {

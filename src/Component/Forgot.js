@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import "antd/dist/antd.css";
 import Img from "../imgs/shopApp.png";
 import { CgClose } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login, sendCode } from "../redux/auth/action";
 
 function Login() {
+  const dispatch = useDispatch();
+  const nav = useNavigate();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+    deviceId: "",
+  });
+
+  const onChangeInput = function (event) {
+    const { name, value } = event.target;
+    if (name === "email") {
+      setUser({ ...user, [name]: value, ["deviceId"]: `deviceId-${value}` });
+    } else {
+      setUser({ ...user, ["password"]: value });
+    }
+  };
+
+  const handleSendCode = (e) => {
+    e.preventDefault();
+    dispatch(sendCode(user.email));
+  };
+
+  const handleRecover = (e) => {
+    e.preventDefault();
+    dispatch(login(user, dispatch, nav));
+  };
+
   return (
     <div className="relative w-[832px] h-[395px] rounded-[20px] shadow-login">
       <div className="absolute w-[416px] h-[395px] bg-white rounded-l-lg">
-        <form className="absolute w-[319.17px] h-[247px] left-[47px] top-[51px]">
+        <form
+          onSubmit={handleRecover}
+          className="absolute w-[319.17px] h-[247px] left-[47px] top-[51px]"
+        >
           <p className="h-[28px] mb-0 not-italic font-bold text-[24px] leading-7 font-roboto">
             Forgot Password?
           </p>
@@ -19,9 +52,15 @@ function Login() {
               <input
                 className="w-[143px] h-[19px] ml-[7.36px] font-roboto text-[#757575]"
                 type="email"
+                name="email"
                 placeholder="Email@mail.com"
+                value={user.email}
+                onChange={onChangeInput}
               />
-              <button className="w-[89px] h-[14px] ml-[52px] not-italic font-bold my-auto text-[12px] font-roboto text-right leading-[14px]">
+              <button
+                onClick={handleSendCode}
+                className="w-[89px] h-[14px] ml-[52px] not-italic font-bold my-auto text-[12px] font-roboto text-right leading-[14px]"
+              >
                 Send Code
               </button>
             </div>
@@ -31,7 +70,10 @@ function Login() {
             <input
               className="w-[166px] h-[19px] ml-[7.36px] font-roboto text-[#757575]"
               type="text"
+              name="code"
               placeholder="Code"
+              value={user.code}
+              onChange={onChangeInput}
             />
             <hr className="w-[295.72px] h-0 border border-solid border-[#6b6b6b] mt-[5px]" />
           </div>
