@@ -57,7 +57,7 @@ function Register() {
           </p>
           <div className=" w-[295.72px] h-[24px] mt-[30px] ml-[11px]">
             <input
-              className="w-[285px] h-[19px] ml-[7px] font-roboto text-[#757575]"
+              className="w-[285px] h-[19px] ml-[7px] font-roboto text-[#757575] focus:outline-none"
               type="text"
               id="username"
               name="username"
@@ -69,7 +69,7 @@ function Register() {
           </div>
           <div className=" w-[295.72px] h-[24px] mt-[13px] ml-[11px]">
             <input
-              className="w-[143px] h-[19px] ml-[7px] font-roboto text-[#757575]"
+              className="w-[143px] h-[19px] ml-[7px] font-roboto text-[#757575] focus:outline-none"
               type="email"
               placeholder="Email@mail.com"
               name="email"
@@ -81,7 +81,7 @@ function Register() {
           <div className="w-[295.72px] h-[24px] mt-[13px] ml-[11px]">
             <div className="flex">
               <input
-                className="w-[166px] h-[19px] ml-[7px] font-roboto text-[#757575]"
+                className="w-[166px] h-[19px] ml-[7px] font-roboto text-[#757575] focus:outline-none"
                 type="password"
                 id="password"
                 placeholder="Password"
@@ -101,7 +101,7 @@ function Register() {
           </div>
           <div className="w-[295.72px] h-[24px] mt-[13px] ml-[11px]">
             <input
-              className="w-[166px] h-[19px] ml-[7px] font-roboto text-[#757575]"
+              className="w-[166px] h-[19px] ml-[7px] font-roboto text-[#757575] focus:outline-none"
               type="password"
               placeholder="Confirm Password"
             />

@@ -40,7 +40,7 @@ function Login() {
           </p>
           <div className=" w-[295.72px] h-[24px] mt-[52px] ml-[11.64px]">
             <input
-              className="w-[143px] h-[19px] ml-[7.36px] font-roboto text-[#757575] "
+              className="w-[143px] h-[19px] ml-[7.36px] font-roboto text-[#757575] focus:outline-none bg-white"
               name="email"
               type="email"
               placeholder="Email@mail.com"
@@ -52,7 +52,7 @@ function Login() {
           <div className="w-[295.72px] h-[24px] mt-[28px] ml-[11.64px]">
             <div className="flex">
               <input
-                className="w-[166px] h-[19px] ml-[7.36px] font-roboto text-[#757575]"
+                className="w-[166px] h-[19px] ml-[7.36px] font-roboto text-[#757575] focus:outline-none"
                 type="password"
                 name="password"
                 placeholder="Password"
